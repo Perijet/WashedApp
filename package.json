@@ -1,0 +1,20 @@
+{
+  "name": "washedapp",
+  "version": "1.0.0",
+  "description": "Laundromat App ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perijet/WashedApp.git"
+  },
+  "author": "Team WashedAPP (Dawn, Daniel, Nigel, Suzanne, Pinar)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Perijet/WashedApp/issues"
+  },
+  "homepage": "https://github.com/Perijet/WashedApp#readme"
+}
