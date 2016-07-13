@@ -9,16 +9,16 @@ router.get('/', function(req,res) {
 });
 
 router.get('/inv', function(req,res) {
-	//express callback response by calling inv.selectAllBurger
+	//express callback response by calling inv.selectAllinv
 	inv.all(function(inv_data){
-		//wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
+		//wrapper for orm.js that using MySQL query callback will return inv_data, render to index with handlebar
 		res.render('index', {inv_data});
 	});
 });
 
 //post route -> back to index
 router.post('/inv/create', function(req, res) {
-	//takes the request object using it as input for buger.addBurger
+	//takes the request object using it as input for inv.addinv
 	inv.create(req.body, function(result){
 		//wrapper for orm.js that using MySQL insert callback will return a log to console, render back to index with handle
 		console.log(result);
