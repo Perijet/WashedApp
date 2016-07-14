@@ -9,7 +9,11 @@ var washedAppMethods = {
 	},
 	create: function(inventoryObj, callback){
 		//here I want to insert into the database via ORM
-		orm.create (callback(newInventoryObj);
+		orm.create(inventoryObj, function(status){
+			if (status == "ok") {
+				callback('ok')
+			}
+		});
 	},
 	update: function(inventoryObj, callback){
 		// here I want to update to db via the ORM
