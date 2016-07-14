@@ -7,27 +7,27 @@ var orm = {
             cb(result);
         });
     },
-    insertSupplies: function(tableInput, nameInput, itemDesc, stockQuantity, price, cb) {
+    insertSupplies: function(tableInput, nameInput, itemDesc, stock_quantity, price, cb) {
         var queryString = 'INSERT INTO ' + tableInput + ' SET ?' 
-        connection.query(queryString, {item_name: nameInput, item_descr: itemDesc, stock_quantity:stockQuantity, price:price}, function(err, result) {
+        connection.query(queryString, {itemName: nameInput, ItemDescription: itemDesc, StockQuantity:stock_quantity, Price:price}, function(err, result) {
             cb(result);
         });        
     },
-    insertEquipment: function(tableInput,serialNo, nameInput, type, purchaseDate, serviceDate, cb) {
+    insertEquipment: function(tableInput,serialNo, nameInput, type, purchase_date, service_date, cb) {
         var queryString = 'INSERT INTO ' + tableInput + ' SET ?' 
-        connection.query(queryString, {serial_no:serialNo, brand_name:nameInput, type: type, purchase_date:purchaseDate, service_date:serviceDate}, function(err, result) {
+        connection.query(queryString, {SerialNumber:serialNo, BrandName:nameInput, Type: type, PurchaseDate:purchase_date, ServiceDate:service_date}, function(err, result) {
             cb(result);
         });        
     },
-    updateSupplies: function(tableInput, stockQuantity, idInput, cb) {
+    updateSupplies: function(tableInput, stock_quantity, idInput, cb) {
         var queryString = 'UPDATE ' + tableInput + ' SET ? WHERE ?'
-        connection.query(queryString, [{stock_quantity:stockQuantity}, {id: idInput}], function(err, result) {
+        connection.query(queryString, [{stockQuantity:stock_quantity}, {id: idInput}], function(err, result) {
             cb(result);
         });
     },
-    updateEquipment: function(tableInput, serviceDate, idInput, cb) {
+    updateEquipment: function(tableInput, service_date, idInput, cb) {
         var queryString = 'UPDATE ' + tableInput + ' SET ? WHERE ?'
-        connection.query(queryString, [{service_date:serviceDate}, {id: idInput}], function(err, result) {
+        connection.query(queryString, [{serviceDate:service_date}, {id: idInput}], function(err, result) {
             cb(result);
         });
     },
