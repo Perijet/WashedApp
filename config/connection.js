@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',  //enter your passwaord here
-    database: ''  //enter the database name here
+    database: 'washedapp_db'  
 });
 
 
