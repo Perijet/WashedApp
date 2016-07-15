@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Washed App Machines</title>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.handlebars"><img src="/img/washedapp_logo.png"></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.handlebars"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="supplies.handlebars"><i class="fa fa-fw fa-edit"></i> Supplies</a>
+                    </li>
+                    <li class="active">
+                        <a href="machines.handlebars"><i class="fa fa-fw fa-camera-retro"></i> Machines</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Machines
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-camera-retro"></i> Machines
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+        <!--row-->
+        <div class="row">
+
+            <!--new machine form-->
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h3 class="panel-title">Add a New Machine</h3></div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="serialNumber">Serial Number</label>
+                                    <input type="text" class="form-control" id="serialNumber" placeholder="000000">
+                            </div>
+                            <div class="form-group">
+                                <label for="brandName">Brand</label>
+                                    <input type="text" class="form-control" id="brandName" placeholder="Brand">
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                    <input type="text" class="form-control" id="machineType" placeholder="Machine Type">
+                            </div>
+                            <div class="form-group">
+                                <label for="purchaseDate">Purchase Date</label>
+                                    <input type="text" class="form-control" id="purchaseDate" placeholder="MM/DD/YYYY">
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceDate">Service Date</label>
+                                    <input type="text" class="form-control" id="serviceDate" placeholder="MM/DD/YYYY">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--/.new machine form-->   
+
+
+                    <!-- machines box -->
+                    <div class="col-lg-5 col-md-6">
+                        <div class="panel panel-primary">
+                               <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-camera-retro fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Service Date:</div>
+                                        <div class="huge">12/23/15</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <!--table-->
+                                <table class="table table-bordered table-responsive">
+                                    <tr>
+                                      <td><b>Serial</b></td>
+                                      <td><b>Brand</b></td>
+                                      <td><b>Type</b></td>
+                                      <td><b>Purchased</b></td>
+                                    </tr>
+                                    <tr>
+                                      <td>123456</td>
+                                      <td>Whirlpool</td>
+                                      <td>frontload</td>
+                                      <td>01/13/12</td>
+                                    </tr>
+                                </table>
+                                <!--/.table-->
+                                <!--form-->
+                                <form>
+                                    <div class="form-group">
+                                        <label for="date">Update Service Date</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="MM/DD/YYYY">
+                                    </div>
+                                      <button type="submit" class="btn btn-primary">Update</button>
+                                      <button type="submit" class="btn btn-danger">Delete Machine</button>
+                                </form>
+                                <!--/.form-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.machines box-->
+                    
+                </div>
+                <!--/.row -->
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>
