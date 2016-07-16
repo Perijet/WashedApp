@@ -24,7 +24,7 @@ router.post('/inv/create/:type', function(req, res) {
 	var inventoryObj = req.body;
 	var invType = req.params.type;
 	//takes the request object  using it as input for inv.addinv
-	orm.insertSupplies(invType, inventoryObj, function(err, result){
+	orm.insert(invType, inventoryObj, function(err, result){
 		console.log(result);
 		if (result) {
 			res.redirect('/');
@@ -37,7 +37,7 @@ router.post('/inv/create/:type', function(req, res) {
 router.put('/inv/update/:type', function(req, res) {
 	var inventoryObj = req.body;
 	var invType = req.params.type;
-	orm.updateSupplies(invType, inventoryObj, function(err, result){
+	orm.update(invType, inventoryObj, function(err, result){
 		console.log(result);
 		if (result) {
 			res.redirect('/');
