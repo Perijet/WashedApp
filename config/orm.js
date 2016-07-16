@@ -4,13 +4,16 @@ var orm = {
      selectAll: function(tableInput, cb) {
         var queryString = 'SELECT * FROM ' + tableInput;
         connection.query(queryString, function(err, result) {
-            cb(result);
+            if (err) { return cb(err, null)}
+            cb(null, result);
+            
         });
     },
-    insertSupplies: function(tableInput, nameInput, itemDesc, stock_quantity, price, cb) {
+    insertSupplies: function(tableInput, invObj, cb) {
         var queryString = 'INSERT INTO ' + tableInput + ' SET ?' 
-        connection.query(queryString, {itemName: nameInput, ItemDescription: itemDesc, StockQuantity:stock_quantity, Price:price}, function(err, result) {
-            cb(result);
+        connection.query(queryString, invObj, function(err, result) {
+            if (err) { return cb(err, null)}
+            cb(null, result);
         });        
     },
     insertEquipment: function(tableInput,serialNo, nameInput, type, purchase_date, service_date, cb) {
