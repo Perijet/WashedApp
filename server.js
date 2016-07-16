@@ -1,7 +1,7 @@
 var express 		= require('express');
 var methodOverride 	= require('method-override');
 var bodyParser 		= require('body-parser');
-var routes 			= require('./controllers/washedapp_controller.js');
+var routes 			= require('./controllers/washedapp_controllers.js');
 
 var app 	= express();
 var PORT 	= process.env.PORT || 3000;
