@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/inv', function(req, res) {
 	orm.selectAll("supplies", function(err, result){
-		console.log(result)
+		console.log(result);
 		res.render('supplies', {
 	//	res.render('index', {inv_data});
 			inventoryArray: result
@@ -37,8 +37,8 @@ router.post('/inv/create/:type', function(req, res) {
 router.put('/inv/update/:type', function(req, res) {
 	var inventoryObj = req.body;
 	var invType = req.params.type;
-	orm.update(invType, inventoryObj, function(err, result){
-		console.log(result);
+	orm.update(invType, inventoryObj.StockQuantity, inventoryObj.id, function(err, result){
+		console.log(inventoryObj.id);
 		if (result) {
 			res.redirect('/');
 		} else {

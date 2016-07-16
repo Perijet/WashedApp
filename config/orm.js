@@ -25,7 +25,7 @@ var orm = {
         });
     },
     delete: function(tableInput, invObj, cb) {
-     	var queryString = 'DELETE FROM ' + tableInput + ' WHERE ?'
+        var queryString = 'DELETE FROM ' + tableInput + ' WHERE ?'
         connection.query(queryString, invObj, function(err, result) {
             if (err) { return cb(err, null)}
             cb(null, result);
