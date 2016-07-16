@@ -1,40 +1,25 @@
-
+ //go to previous folder and search for config/orm.js
+var orm = require('../config/orm.js');
 var express = require('express');
 var router = express.Router();
-var inv = require('../models/washedapp.js');
 
-//get route -> index
-router.get('/', function(req,res) {
-		res.redirect('/inv')
-});
-
-router.get('/inv', function(req,res) {
-	//express callback response by calling inv.selectAllinv
 	orm.all(function(invArray){
 		res.render('inventoryPage', {
+	//	res.render('index', {inv_data});
 			inventoryArray: invArray
 		})
-		//{{#each inventoryArray}}
-	});
-	inv.all(function(inv_data){
-		//wrapper for orm.js that using MySQL query callback will return inv_data, render to index with handlebar
-		res.render('index', {inv_data});
-	});
-});
-
-//post route -> back to index
-router.post('/inv/create', function(req, res) {
-	//takes the request object using it as input for inv.addinv
-	orm.create(req.body, parameter1, parameter2, function(status){
+		console.log( );
+		//{{#each inventoryArray}} (handlebar)
 		if (status == "ok") {
 			res.redirect('/');
 		} else {
 			res.redirect('/error')
 		}
 	});
-
-	inv.create(req.body, function(result){
-		//wrapper for orm.js that using MySQL insert callback will return a log to console, render back to index with handle
+//post route -> back to index
+//router.post('/inv/create', function(req, res) {
+	//takes the request object  using it as input for inv.addinv
+	orm.create(req.body, parameter1, parameter2, function(result){
 		console.log(result);
 		if (result == "ok") {
 			res.redirect('/');
@@ -42,14 +27,28 @@ router.post('/inv/create', function(req, res) {
 			res.redirect('/error')
 		}
 	});
-});
+	//inv.create(req.body, function(result){
+		//wrapper for orm.js that using MySQL insert callback will return a log to console, render back to index with handle
+		
 
-//put route -> back to index
-router.put('/inv/update', function(req,res){
-	inv.update(req.body, function(result){
-		//wrapper for orm.js that using MySQL update callback will return a log to console, render back to index with handle
+//delete inventory item - find by ID
+	orm.delete(req.body, function(result){
+	 inv.findByID(req.id, function(err, inv)
+	 	console.log (result);
+	if (result == "ok") {
+		res.redirect('/')
+	} else {
+		res.redirect('/error')
+	});		
+});		
+//update invrntory item - find by ID	
+	orm.update(req.body, function(result){
+		inv.findByID(req.id, function(err,inv)) 
 		console.log(result);
-		res.redirect('/');
+		if (result == "ok") {
+		res.redirect('/')
+	} else {
+		res.redirect('/error');
 	});
 });
 
