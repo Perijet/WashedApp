@@ -4,9 +4,12 @@ var orm = {
      selectAll: function(tableInput, cb) {
         var queryString = 'SELECT * FROM ' + tableInput;
         connection.query(queryString, function(err, result) {
-            cb(result);
+            if (err) { return cb(err, null)}
+            cb(null, result);
+            
         });
     },
+
     insert: function(tableInput, invObj, cb) {
         var queryString = 'INSERT INTO ' + tableInput + ' SET ?' 
         connection.query(queryString, invObj, function(err, result) {
