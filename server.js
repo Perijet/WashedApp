@@ -14,6 +14,10 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('public'));
 app.use('/', routes);
+//app.use('/inv', routes);
+// app.use('/inv/create', routes);
+// app.use('/inv/update', routes);
+// app.use('/inv/delete', routes);
 
 
 app.use(bodyParser.urlencoded({
