@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/inv', function(req, res) {
 	orm.selectAll("supplies", function(err, result){
-		console.log(result);
+		console.log(result)
 		res.render('supplies', {
 	//	res.render('index', {inv_data});
 			inventoryArray: result
@@ -19,6 +19,41 @@ router.get('/inv', function(req, res) {
 		// }
 	});
 	});
+
+router.get('/equip', function(req, res) {
+	orm.selectAll("equipment", function(err, result){
+		console.log(result)
+		res.render('machines', {
+	//	res.render('index', {inv_data});
+			inventoryArray: result
+		});
+		console.log( );
+		//{{#each inventoryArray}} (handlebar)
+		// if (result) {
+		// 	res.redirect('/');
+		// } else {
+		// 	res.redirect('/error');
+		// }
+	});
+	});
+
+router.get('/dash', function(req, res) {
+	orm.selectAll("supplies", function(err, result){
+		console.log(result)
+		res.render('index', {
+	//	res.render('index', {inv_data});
+			inventoryArray: result
+		});
+		console.log( );
+		//{{#each inventoryArray}} (handlebar)
+		// if (result) {
+		// 	res.redirect('/');
+		// } else {
+		// 	res.redirect('/error');
+		// }
+	});
+	});
+
 //post route -> back to index
 router.post('/inv/create/:type', function(req, res) {
 	var inventoryObj = req.body;
@@ -38,7 +73,7 @@ router.put('/inv/update/:type', function(req, res) {
 	var inventoryObj = req.body;
 	var invType = req.params.type;
 	orm.update(invType, inventoryObj.StockQuantity, inventoryObj.id, function(err, result){
-		console.log(inventoryObj.id);
+		console.log(req.body);
 		if (result) {
 			res.redirect('/');
 		} else {
@@ -49,19 +84,19 @@ router.put('/inv/update/:type', function(req, res) {
 	});
 
 
-// router.delete('/inv/delete/:type', function(req, res) {
-// 	var inventoryObj = req.body;
-// 	var invType = req.params.type;
-// 	//takes the request object  using it as input for inv.addinv
-// 	orm.deleteSupplies(invType, inventoryObj, function(err, result){
-// 		console.log(result);
-// 		if (result) {
-// 			res.redirect('/');
-// 		} else {
-// 			res.redirect('/error');
-// 		}
-// 	});
-// });
+router.delete('/inv/delete/:type', function(req, res) {
+	var inventoryObj = req.body;
+	var invType = req.params.type;
+	//takes the request object  using it as input for inv.addinv
+	orm.delete(invType, inventoryObj, function(err, result){
+		console.log(result);
+		if (result) {
+			res.redirect('/');
+		} else {
+			res.redirect('/error');
+		}
+	});
+});
 
 
 

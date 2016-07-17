@@ -19,7 +19,7 @@ var orm = {
     },
     update: function(tableInput, invObj_1, invObj_2, cb) {
         var queryString = 'UPDATE ' + tableInput + ' SET ? WHERE ?'
-        connection.query(queryString, invObj, function(err, result) {
+        connection.query(queryString, invObj_1, invObj_2, function(err, result) {
             if (err) { return cb(err, null)}
             cb(null, result);
         });

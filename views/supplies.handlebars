@@ -143,18 +143,23 @@
                             </div>
                             <div class="panel-footer">
                                 <!--table-->
+                                {{#each inventoryArray}}
                                 <table class="table table-bordered table-responsive">
+                                    
                                     <tr>
                                       <td><b>Brand Name</b></td>
                                       <td><b>Description</b></td>
                                       <td><b>Price</b></td>
                                     </tr>
+
                                     <tr>
-                                      <td>Tide</td>
-                                      <td>Dry Detergent</td>
-                                      <td>65.5</td>
+                                      <td>{{this.ItemName}}</td>
+                                      <td>{{this.ItemDescription}}</td>
+                                      <td>{{this.Price}}</td>
                                     </tr>
+                                    
                                 </table>
+                                {{/each}}
                                 <!--/.table-->
                                 <!--form-->
                                 <form>
