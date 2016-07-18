@@ -1,7 +1,12 @@
+var handlebars 	= require('handlebars');
 var express 		= require('express');
 var methodOverride 	= require('method-override');
 var bodyParser 		= require('body-parser');
 var routes 			= require('./controllers/washedapp_controllers.js');
+var handlebars = require('handlebars');
+//var hbs = require('hbs');
+
+handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
 
 var app 	= express();
 var PORT 	= process.env.PORT || 3000;

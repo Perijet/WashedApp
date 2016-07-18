@@ -104,26 +104,26 @@
                 <div class="panel panel-info">
                     <div class="panel-heading"><h3 class="panel-title">Add a New Machine</h3></div>
                     <div class="panel-body">
-                        <form>
+                        <form action="inv/create/equipment" method="POST">
                             <div class="form-group">
                                 <label for="serialNumber">Serial Number</label>
-                                    <input type="text" class="form-control" id="serialNumber" placeholder="000000">
+                                    <input type="text" class="form-control" id="serialNumber" placeholder="000000" name="SerialNumber">
                             </div>
                             <div class="form-group">
                                 <label for="brandName">Brand</label>
-                                    <input type="text" class="form-control" id="brandName" placeholder="Brand">
+                                    <input type="text" class="form-control" id="brandName" placeholder="Brand" name="BrandName">
                             </div>
                             <div class="form-group">
                                 <label for="type">Type</label>
-                                    <input type="text" class="form-control" id="machineType" placeholder="Machine Type">
+                                    <input type="text" class="form-control" id="machineType" placeholder="Machine Type" name="Type">
                             </div>
                             <div class="form-group">
                                 <label for="purchaseDate">Purchase Date</label>
-                                    <input type="text" class="form-control" id="purchaseDate" placeholder="MM/DD/YYYY">
+                                    <input type="text" class="form-control" id="purchaseDate" placeholder="MM/DD/YYYY" name="PurchaseDate">
                             </div>
                             <div class="form-group">
                                 <label for="serviceDate">Service Date</label>
-                                    <input type="text" class="form-control" id="serviceDate" placeholder="MM/DD/YYYY">
+                                    <input type="text" class="form-control" id="serviceDate" placeholder="MM/DD/YYYY" name="ServiceDate">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
