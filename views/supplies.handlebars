@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.handlebars"><img src="/img/washedapp_logo.png"></a>
+                <a class="navbar-brand" href="/home"><img src="/img/washedapp_logo.png"></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">             
@@ -59,13 +59,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.handlebars"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="/dash"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li class="active">
-                        <a href="supplies.handlebars"><i class="fa fa-fw fa-edit"></i> Supplies</a>
+                        <a href="/inv"><i class="fa fa-fw fa-edit"></i> Supplies</a>
                     </li>
                     <li>
-                        <a href="machines.handlebars"><i class="fa fa-fw fa-camera-retro"></i> Machines</a>
+                        <a href="/equip"><i class="fa fa-fw fa-camera-retro"></i> Machines</a>
                     </li>
                 </ul>
             </div>
@@ -126,7 +126,7 @@
             </div>
             <!--/.new machine form-->   
 
-
+                    {{#each inventoryArray}}
                     <!-- machines box -->
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
@@ -137,13 +137,13 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div>Quantity:</div>
-                                        <div class="huge">156</div>
+                                        <div class="huge">{{this.StockQuantity}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-footer">
                                 <!--table-->
-                                {{#each inventoryArray}}
+                                
                                 <table class="table table-bordered table-responsive">
                                     
                                     <tr>
@@ -159,10 +159,10 @@
                                     </tr>
                                     
                                 </table>
-                                {{/each}}
+
                                 <!--/.table-->
                                 <!--form-->
-                                <form>
+                                <form action="/delete" method="POST" value="{{this.id}}">
                                     <div class="form-group">
                                         <label for="date">Update Quantity</label>
                                         <input type="text" class="form-control" id="itemQuantity" placeholder="000">
@@ -170,12 +170,13 @@
                                             <button type="submit" class="btn btn-success">Update</button>
                                             <button type="submit" class="btn btn-danger">Delete Item</button>
                                 </form>
+
                                 <!--/.form-->
                             </div>
                         </div>
                     </div>
                     <!--/.machines box-->
-                    
+                    {{/each}}
                 </div>
                 <!--/.row -->
 
