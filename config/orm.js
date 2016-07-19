@@ -17,9 +17,16 @@ var orm = {
             cb(null, result);
         });        
     },
-    update: function(tableInput, invObj, cb) {
-        var queryString = 'UPDATE ' + tableInput + ' SET StockQuantity =' + invObj.StockQuantity + ' WHERE id = ?';
-        connection.query(queryString, invObj,function(err, result) {
+    updateSupp: function(tableInput, invObj1, invObj2 ,cb) {
+        var queryString = 'UPDATE ' + tableInput + ' SET StockQuantity = ? WHERE id =' + invObj2;
+        connection.query(queryString, invObj1,function(err, result) {
+            if (err) { return cb(err, null);}
+            cb(null, result);
+        });
+    },
+    updateMach: function(tableInput, invObj1, invObj2 ,cb) {
+        var queryString = 'UPDATE ' + tableInput + ' SET ServiceDate = ? WHERE id =' + invObj2;
+        connection.query(queryString, invObj1,function(err, result) {
             if (err) { return cb(err, null);}
             cb(null, result);
         });
