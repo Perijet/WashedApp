@@ -61,23 +61,39 @@ router.post('/inv/create/:type', function(req, res){
 });
 
 router.post('/inv/update/:type', function(req, res){
-	//var inventoryObj = req.body;
 	var invType = req.params.type;
-	//console.log(inventoryObj);
-	orm.update(invType, req.body, function(err, result){
-		console.log(req.body);
-		if (result) {
-			if(invType == 'supplies'){
-				res.redirect('/inv');
-			}else{
-				res.redirect('/equip');
-			}
-		} else {
-			res.redirect('/error');
-		}
-	});
 
-	});
+	if(invType == 'supplies'){
+
+		orm.updateSupp(invType, req.body.StockQuantity, req.body.id ,function(err, result){
+			console.log(req.body);
+			if (result) {
+				if(invType == 'supplies'){
+					res.redirect('/inv');
+				}else{
+					res.redirect('/equip');
+				}
+			} else {
+				res.redirect('/error');
+			}
+		});
+	}else{
+		orm.updateMach(invType, req.body.ServiceDate, req.body.id ,function(err, result){
+			console.log(req.body);
+			if (result) {
+				if(invType == 'supplies'){
+					res.redirect('/inv');
+				}else{
+					res.redirect('/equip');
+				}
+			} else {
+				res.redirect('/error');
+			}
+		});
+	}
+
+});
+
 
 router.all('/inv/delete/:type', function(req, res){
 	var invType = req.params.type;
