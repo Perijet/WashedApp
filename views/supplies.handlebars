@@ -26,7 +26,7 @@
     <!-- Custom Fonts -->
     <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    
 
 </head>
 
@@ -167,16 +167,16 @@
                                 <form action="/inv/update/supplies?_method=PUT" method="POST">
                                     <div class="form-group">
                                         <label for="date">Update Quantity</label>
-                                        <input type="text" class="form-control" i placeholder="000" name="StockQuantity">
+                                        <input type="text" class="form-control" i placeholder="000" id="itemQuantity" name="StockQuantity">
                                     </div>
                                               
                                         <button type="submit" class="btn btn-success">Update</button> 
-                                        <input type="hidden" >           
+                                        <input type="hidden" name="id" value="{{this.id}}">           
                                 </form>
 
                                 <form action="/inv/delete/supplies?_method=DELETE" method="POST">
-                                    <input type="hidden" name="id" value="{{this.id}}">
-                                    <button type="submit" class="btn btn-danger">Delete Item</button>
+                                        <input type="hidden" name="id" value="{{this.id}}">
+                                        <button type="submit" class="btn btn-danger">Delete Item</button>
                                                 
                                 </form>
 
