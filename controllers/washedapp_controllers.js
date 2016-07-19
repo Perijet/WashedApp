@@ -3,7 +3,7 @@ var handlebars 	= require('handlebars');
 var orm = require('../config/orm.js');
 var express = require('express');
 var router = express.Router();
-handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
+var methodOverride 	= require('method-override');
 
 router.get('/home', function(req, res){
 		console.log(res);
@@ -67,7 +67,11 @@ router.put('/inv/update/:type', function(req, res){
 	orm.update(invType, inventoryObj, function(err, result){
 		console.log(req.body);
 		if (result) {
-			res.redirect('/');
+			if(invType == 'supplies'){
+				res.redirect('/inv');
+			}else{
+				res.redirect('/equip');
+			}
 		} else {
 			res.redirect('/error');
 		}
@@ -75,17 +79,17 @@ router.put('/inv/update/:type', function(req, res){
 
 	});
 
-
-router.delete('/inv/delete/:type', function(req, res){
-	var inventoryObj = req.body;
+router.all('/inv/delete/:type', function(req, res){
 	var invType = req.params.type;
-	console.log(inventoryObj);
-	//takes the request object  using it as input for inv.addinv
-	orm.delete(invType, inventoryObj, function(err, result){
+	orm.delete(invType, req.body.id, function(err, result){
 		console.log(result);
 		if (result) {
-			res.redirect('/');
-		} else {
+			if(invType == 'supplies'){
+				res.redirect('/inv');
+			}else{
+				res.redirect('/equip');
+			}
+		} else{
 			res.redirect('/error');
 		}
 	});
