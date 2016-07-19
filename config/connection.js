@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Boston#1',  //enter your passwaord here
+    password: '',  //enter your passwaord here
     database: 'washedapp_db'  
 });
 
