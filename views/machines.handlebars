@@ -165,14 +165,20 @@
                                 </table>
                                 <!--/.table-->
                                 <!--form-->
-                                <form>
+                                <form action="/inv/update/equipment?_method=PUT" method="POST">
                                     <div class="form-group">
                                         <label for="date">Update Service Date</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="YYYY-MM-DD">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="YYYY-MM-DD" name="ServiceDate">
                                     </div>
-                                      <button type="submit" class="btn btn-primary">Update</button>
-                                      <button type="submit" class="btn btn-danger">Delete Machine</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <input type="hidden" name="id" value="{{this.id}}">  
                                 </form>
+                                
+                                <form action="/inv/delete/equipment?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger">Delete Machine</button>
+                                        <input type="hidden" name="id" value="{{this.id}}">
+                                </form>
+
                                 <!--/.form-->
                             </div>
                         </div>

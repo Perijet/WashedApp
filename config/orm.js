@@ -18,8 +18,8 @@ var orm = {
         });        
     },
     update: function(tableInput, invObj, cb) {
-        var queryString = 'UPDATE ' + tableInput + ' SET('+invObj.StockQuantity+ '= ?) WHERE ('+invObj.id+ '= ?)';
-        connection.query(queryString, invObj, function(err, result) {
+        var queryString = 'UPDATE ' + tableInput + ' SET StockQuantity =' + invObj.StockQuantity + ' WHERE id = ?';
+        connection.query(queryString, invObj,function(err, result) {
             if (err) { return cb(err, null);}
             cb(null, result);
         });

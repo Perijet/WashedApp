@@ -60,11 +60,11 @@ router.post('/inv/create/:type', function(req, res){
 	});
 });
 
-router.put('/inv/update/:type', function(req, res){
-	var inventoryObj = req.body;
+router.post('/inv/update/:type', function(req, res){
+	//var inventoryObj = req.body;
 	var invType = req.params.type;
-	console.log(inventoryObj);
-	orm.update(invType, inventoryObj, function(err, result){
+	//console.log(inventoryObj);
+	orm.update(invType, req.body, function(err, result){
 		console.log(req.body);
 		if (result) {
 			if(invType == 'supplies'){
