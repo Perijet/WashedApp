@@ -4,7 +4,8 @@ var connection = mysql.createConnection({
     user: 'root',
     password: 'Boston#1',  //enter your passwaord here
     database: 'washedapp_db'  
-});
+}) || mysql.createConnection(process.env.JAWSDB_URL);
+
 
 
 
