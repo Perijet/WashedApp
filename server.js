@@ -5,6 +5,10 @@ var bodyParser 		= require('body-parser');
 var routes 			= require('./controllers/washedapp_controllers.js');
 var handlebars = require('handlebars');
 var moment = require('moment');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fbf36785cd757da242b54d013386091985ce7e2
 //var hbs = require('hbs');
 
 handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
@@ -34,6 +38,7 @@ app.engine('handlebars', exphbs({
     helpers: {
         formatDate: function (date, format) {
             return moment(date).format('YYYY/MM/DD');
+
         }
     }
 }));
