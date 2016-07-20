@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var methodOverride 	= require('method-override');
 
-router.get('/home', function(req, res){
+router.get('/', function(req, res){
 		console.log(res);
 		res.render('home');
 });
