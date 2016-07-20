@@ -11,7 +11,7 @@ var moment = require('moment');
 
 
 var app 	= express();
-var PORT 	= process.env.PORT || 3000;
+var PORT 	= process.env.JAWSDB_URL || 3000;
 
 
 app.use(bodyParser.json());
