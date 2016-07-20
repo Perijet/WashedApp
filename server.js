@@ -4,6 +4,7 @@ var methodOverride 	= require('method-override');
 var bodyParser 		= require('body-parser');
 var routes 			= require('./controllers/washedapp_controllers.js');
 var handlebars = require('handlebars');
+var moment = require('moment');
 //var hbs = require('hbs');
 
 handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
@@ -29,7 +30,12 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'));
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: {
+        formatDate: function (date, format) {
+            return moment(date).format('YYYY/MM/DD');
+        }
+    }
 }));
 
 app.set('view engine', 'handlebars');
