@@ -8,7 +8,7 @@ var moment = require('moment');
 
 //var hbs = require('hbs');
 
-handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
+
 
 var app 	= express();
 var PORT 	= process.env.PORT || 3000;
@@ -33,8 +33,9 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     helpers: {
-		formatDate: function (date, format) {
-            return moment(date).format('MM/DD/YYYY');
+        formatDate: function (date, format) {
+            return moment(date).format('YYYY/MM/DD');
+
         }
     }
 }));
