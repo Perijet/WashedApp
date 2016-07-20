@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: process.env.JAWSDB_URL || 'localhost',
     user: 'root',
-    password: 'Boston#1',  //enter your passwaord here
+    password: 'Boston#1',  //enter your password here
     database: 'washedapp_db'  
 });
 
